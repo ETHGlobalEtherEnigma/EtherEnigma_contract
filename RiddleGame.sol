@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
+// src/RiddleGame.sol
+
 contract RiddleGame {
     address public owner;
     address public agent;
@@ -103,7 +105,6 @@ contract RiddleGame {
             emit GameEnded(msg.sender, false, 0);
         }
     }
-
 
     // Agent can end the player's game (e.g., if the player did not submit an answer in time)
     function endGame(address _player) external onlyAgent gameIsActive {
