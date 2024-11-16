@@ -236,7 +236,8 @@ contract RiddleGame_Test is Test {
         game.startGame{value: stakeAmount}();
 
         // agent sets the riddle for player3
-        bytes32 answerHash3 = keccak256(abi.encodePacked("windy"));
+        bytes32 answerHash3 = keccak256(abi.encodePacked("Echo"));
+        // console.logBytes32(answerHash3);
         vm.prank(agent);
         game.setRiddle(player3, answerHash3);
 
@@ -244,7 +245,7 @@ contract RiddleGame_Test is Test {
 
         // player3 submits the correct answer
         vm.prank(player3);
-        game.submitAnswer("windy");
+        game.submitAnswer("Echo");
 
         // Check if player 3's balance has increased
         uint256 player3BalanceAfter = player3.balance;
